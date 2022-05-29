@@ -1,0 +1,23 @@
+server:
+  port: 9002
+
+spring:
+  application:
+    name: books-ui
+
+eureka:
+  client:
+    service-url:
+      defaultzone: http://localhost:8761/erueka
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMillseconds: 1000
+
+feign:
+  hystrix:
+    enabled: true

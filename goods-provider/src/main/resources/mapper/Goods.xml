@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.goodsprovider.dao.GoodsProviderDao">
+    <resultMap type="com.example.goodscommons.entity.Book" id="Book">
+        <result column="book_id" property="bookId" jdbcType="INTEGER"/>
+        <result column="book_name" property="bookName" jdbcType="VARCHAR"/>
+        <result column="book_author" property="bookAuthor" jdbcType="VARCHAR"/>
+        <result column="book_desc" property="bookDesc" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="getBookList" resultMap="Book">
+        select * from books
+    </select>
+    <select id="queryById" resultMap="Book">
+        select * from book.books where book_id = #{id}
+    </select>
+</mapper>

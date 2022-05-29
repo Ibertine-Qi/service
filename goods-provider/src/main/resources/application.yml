@@ -1,0 +1,24 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: goods-provider
+  datasource:
+    druid:
+      #如果是8.X版本数据库，驱动应该是:com.mysql.cj.jdbc.Driver
+      driver-class-name: com.mysql.jdbc.Driver
+      #如果是8.X版本数据库，url必须要设置时区(  serverTimezone=UTC )
+      url: jdbc:mysql://localhost:3306/book
+      username: root
+      #自己的密码
+      password: root
+mybatis:
+  #mapper文件所在的位置
+  mapper-locations: classpath:mapper/*.xml
+  #对应的实体类所在的包名(在Mapper文件中使用实体类时只需要类名即可，不需要指明哪个包)
+  type-aliases-package: com.example.goodscommons.entity
+eureka:
+  client:
+    service-url:
+      defaultzone: http://localhost:8761/erueka
